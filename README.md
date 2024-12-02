@@ -61,7 +61,7 @@ https://drive.google.com/file/d/1WQqVEqyCrJHiDMGKwRFC5qDrxdCQ6VdZ/view?usp=shari
 
 ## Screenshot
 
-![FrontPage](public\images\Front_Page.png)
+<img width="1352" alt="Homepage2" src="https://github.com/user-attachments/assets/b59e06e0-54bc-4180-982a-18dca8acf158">
 <img width="1352" alt="Homepage1" src="https://github.com/user-attachments/assets/c5f7f502-42e0-41fd-9316-b90f1c0b8778">
 
 
