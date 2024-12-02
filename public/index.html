@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Online Library Store</title>
+    <link rel="stylesheet" href="css\styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Online Library</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="membership.html">Members</a></li> <!-- Added link to Members page -->
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="checkout.html" class="fas fa-shopping-cart"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Our Online Library</h2>
+        <p>Browse our collection of books, eBooks, and more. Order your next great read today!</p>
+    </section>
+
+    <section id="books">
+        <h2>Books Collection</h2>
+        <div class="book-container">
+            <div class="book-card">
+                <img src="images/Harry Potter.png" alt="Harry Potter and the Sorcerer's Stone">
+                <h3>Harry Potter and the Sorcerer's Stone</h3>
+                <p>Author: J.K. Rowling</p>
+                <button onclick="addToCart({ title: 'Harry Potter and the Sorcerer\'s Stone', BookID: 1 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/Hunger_Games.png" alt="The Hunger Games">
+                <h3>The Hunger Games</h3>
+                <p>Author: Suzanne Collins</p>
+                <button onclick="addToCart({ title: 'The Hunger Games', BookID: 2 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/1984.png" alt="1984">
+                <h3>1984</h3>
+                <p>Author: George Orwell</p>
+                <button onclick="addToCart({ title: '1984', BookID: 3 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/To_kill_a_mockingbird.png" alt="To Kill a Mockingbird">
+                <h3>To Kill a Mockingbird</h3>
+                <p>Author: Harper Lee</p>
+                <button onclick="addToCart({ title: 'To Kill a Mockingbird', BookID: 4 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/The_Great_Gatsby.png" alt="The Great Gatsby">
+                <h3>The Great Gatsby</h3>
+                <p>Author: F. Scott Fitzgerald</p>
+                <button onclick="addToCart({ title: 'The Great Gatsby', BookID: 5 })">Add to Cart</button>
+            </div>
+            <!-- New Books Added -->
+            <div class="book-card">
+                <img src="images/Catch_22.png" alt="Catch-22">
+                <h3>Catch-22</h3>
+                <p>Author: Joseph Heller</p>
+                <button onclick="addToCart({ title: 'Catch-22', BookID: 6 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/The_Shining.png" alt="The Shining">
+                <h3>The Shining</h3>
+                <p>Author: Stephen King</p>
+                <button onclick="addToCart({ title: 'The Shining', BookID: 7 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/Brave_New_World.png" alt="Brave New World">
+                <h3>Brave New World</h3>
+                <p>Author: Aldous Huxley</p>
+                <button onclick="addToCart({ title: 'Brave New World', BookID: 8 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/The_Alchemist.png" alt="The Alchemist">
+                <h3>The Alchemist</h3>
+                <p>Author: Paulo Coelho</p>
+                <button onclick="addToCart({ title: 'The Alchemist', BookID: 9 })">Add to Cart</button>
+            </div>
+            <div class="book-card">
+                <img src="images/The_Picture_Of_Dorian_Gray.png" alt="The Picture of Dorian Gray">
+                <h3>The Picture of Dorian Gray</h3>
+                <p>Author: Oscar Wilde</p>
+                <button onclick="addToCart({ title: 'The Picture of Dorian Gray', BookID: 10 })">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members">
+        <h2>Members Area</h2>
+        <div class="member-registration">
+            <h3>Register as a New Member</h3>
+            <form id="member-form" action="/register" method="POST">
+                <label for="member_name">Full Name:</label>
+                <input type="text" id="member_name" name="member_name" required>
+    
+                <label for="member_email">Email:</label>
+                <input type="email" id="member_email" name="member_email" required>
+    
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <label for="plan">Choose Membership Plan:</label>
+                <select id="plan" name="plan">
+                    <option value="1">Basic Plan</option>
+                    <option value="2">Premium Plan</option>
+                </select>
+    
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    
+        <div class="member-list">
+            <h3>Existing Members</h3>
+            <table id="members-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subscription Date</th>
+                    <th>Plan</th>
+                </tr>
+                <!-- Members will be inserted dynamically via JavaScript -->
+            </table>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out!</p>
+        <p>Email: info@onlinelibrary.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Online Library Store. All rights reserved.</p>
+    </footer>
+
+    <script src="js\script.js"></script>
+</body>
+</html>
+

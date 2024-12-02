@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <div class="nav-cart">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="cart-summary">
+            <h2>Cart Summary</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </ul>
+        </section>
+
+        <section class="checkout-form">
+            <h2>Enter Your Details</h2>
+            <form action="/checkout" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="memberid">Member ID:</label>
+                <input type="number" id="memberid" name="memberid" placeholder="Enter your member ID" required>
+
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Display the cart items when the page loads
+        window.onload = function() {
+            displayCart();
+        };
+
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<li>Your cart is empty.</li>';
+                return;
+            }
+
+            cart.forEach((book) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = book.title;
+                cartContainer.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
